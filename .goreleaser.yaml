@@ -5,7 +5,7 @@ project_name: exporter-unifi-protect
 
 release:
   github:
-    owner: hoomy-official
+    owner: merlindorin
     name: exporter-unifi-protect
 
 # setups builds for linux and darwin on amd64 and arm64
@@ -73,7 +73,7 @@ signs:
 # https://goreleaser.com/customization/docker
 dockers:
   - image_templates:
-      - 'ghcr.io/hoomy-official/exporter-unifi-protect:{{ .Tag }}'
+      - 'ghcr.io/merlindorin/exporter-unifi-protect:{{ .Tag }}'
     dockerfile: Dockerfile
     build_flag_templates:
       - "--pull"
@@ -82,7 +82,7 @@ dockers:
       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
       - "--label=org.opencontainers.image.version={{.Version}}"
       - "--label=org.opencontainers.image.description=Exporter for UniFi Protect is a Prometheus exporter designed to help monitor your UniFi Protect setup by exporting relevant metrics to Prometheus."
-      - "--label=org.opencontainers.image.source=https://github.com/hoomy-official/exporter-unifi-protect"
+      - "--label=org.opencontainers.image.source=https://github.com/merlindorin/exporter-unifi-protect"
 
 # signs our docker image
 # https://goreleaser.com/customization/docker_sign

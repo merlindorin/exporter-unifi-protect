@@ -9,8 +9,8 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 
-	v1 "github.com/hoomy-official/go-unifi-protect/api/v1"
-	protect "github.com/hoomy-official/go-unifi-protect/pkg"
+	v1 "github.com/merlindorin/go-unifi-protect/api/v1"
+	protect "github.com/merlindorin/go-unifi-protect/pkg"
 )
 
 const (

@@ -38,7 +38,7 @@ endpoint.
 Clone the repository to get started with the exporter:
 
 ```shell
-git clone https://github.com/hoomy-official/exporter-unifi-protect.git
+git clone https://github.com/merlindorin/exporter-unifi-protect.git
 cd exporter-unifi-protect
 ```
 

@@ -1,19 +1,14 @@
 version: '3'
 
-vars:
-  NAME: "exporter-unifi-protect"
-  PACKAGE_NAME: "github.com/hoomy-official/exporter-unifi-protect"
-  PACKAGES: "internal,cmd"
-  MARKDOWNLINT_ARGS: "--ignore=./dist README.md"
-
 includes:
-  default: https://raw.githubusercontent.com/vanyda-official/taskfile-default/main/tasks.yaml
-  git: https://raw.githubusercontent.com/vanyda-official/taskfile-git/main/tasks.yaml
-  markdownlint: https://raw.githubusercontent.com/vanyda-official/taskfile-markdownlint/main/tasks.yaml
-  golangci: https://raw.githubusercontent.com/vanyda-official/taskfile-golangci/main/tasks.yaml
-  goreleaser: https://raw.githubusercontent.com/vanyda-official/taskfile-goreleaser/main/tasks.yaml
-  trufflehog: https://raw.githubusercontent.com/vanyda-official/taskfile-trufflehog/main/tasks.yaml
-
+    default: .tk/default/Taskfile.yaml
+    git: .tk/git/Taskfile.yaml
+    golangci: .tk/golangci/Taskfile.yaml
+    goreleaser: .tk/goreleaser/Taskfile.yaml
+    license: .tk/license/Taskfile.yaml
+    markdownlint: .tk/markdownlint/Taskfile.yaml
+    trufflehog: .tk/trufflehog/Taskfile.yaml
+    
 
 dotenv:
   - .env

@@ -17,12 +17,12 @@ import (
 	"github.com/prometheus/exporter-toolkit/web"
 	"go.uber.org/zap"
 
-	"github.com/hoomy-official/exporter-unifi-protect/internal"
-	"github.com/hoomy-official/go-shared/pkg/buildinfo"
-	"github.com/hoomy-official/go-shared/pkg/cmd"
-	u "github.com/hoomy-official/go-shared/pkg/net/url"
-	"github.com/hoomy-official/go-shared/pkg/zapadapter"
-	"github.com/hoomy-official/go-unifi-protect/pkg"
+	"github.com/merlindorin/exporter-unifi-protect/internal"
+	"github.com/merlindorin/go-shared/pkg/buildinfo"
+	"github.com/merlindorin/go-shared/pkg/cmd"
+	u "github.com/merlindorin/go-shared/pkg/net/url"
+	"github.com/merlindorin/go-shared/pkg/zapadapter"
+	"github.com/merlindorin/go-unifi-protect/pkg"
 )
 
 type Serve struct {
@@ -188,7 +188,7 @@ func redirectOverExternalURL(s Serve) func(w http.ResponseWriter, r *http.Reques
 }
 
 func StatusPage(logger *zap.Logger) func(http.ResponseWriter, *http.Request) {
-	return func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, _ *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
 		_, err := w.Write([]byte(`<html>
 <head>
@@ -207,7 +207,7 @@ func StatusPage(logger *zap.Logger) func(http.ResponseWriter, *http.Request) {
 }
 
 func AlwaysHealthy(logger *zap.Logger) func(w http.ResponseWriter, r *http.Request) {
-	return func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, _ *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		_, err := w.Write([]byte("Healthy"))
 

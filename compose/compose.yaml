@@ -26,7 +26,7 @@ services:
       - ./grafana/unifi-protect:/var/lib/grafana/dashboards/unifi-protect
       
   unifi-protect:
-    image: ghcr.io/hoomy-official/exporter-unifi-protect:v0.0.5
+    image: ghcr.io/merlindorin/exporter-unifi-protect:v0.0.5
     container_name: unifi-protect
     command:
       - "serve"
