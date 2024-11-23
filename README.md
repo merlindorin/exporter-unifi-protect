@@ -95,7 +95,11 @@ Replace `<exporter-host>` and `<port>` with the appropriate values for your setu
 
 ## Integrate with Grafana
 
-To integrate the metrics from Prometheus into Grafana, ensure the Prometheus is added as a Datasource. Next you can import the example dashboard from `./compose/grafana/unifi-protect/unifi-protect-dashboard.json`
+To integrate the metrics from Prometheus into Grafana, ensure the Prometheus is added as a Datasource. Next you can import the example dashboard from`./grafana`
+
+<center>
+  <img src="./grafana/single-sensor.png" alt="Single Sensor" style="width:50%; max-width: 480px; height:auto">
+</center>
 
 ## CLI Reference
 
