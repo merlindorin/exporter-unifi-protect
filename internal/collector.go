@@ -154,8 +154,8 @@ func (c *Collector) Collect(ch chan<- prometheus.Metric) {
 		ch <- prometheus.MustNewConstMetric(c.lastSeenGauge, prometheus.GaugeValue, float64(sensor.LastSeen), sensor.ID, sensor.Name)
 		ch <- prometheus.MustNewConstMetric(c.connectedSinceGauge, prometheus.GaugeValue, float64(sensor.ConnectedSince), sensor.ID, sensor.Name)
 		ch <- prometheus.MustNewConstMetric(c.batteryStatusPercentageGauge, prometheus.GaugeValue, float64(sensor.BatteryStatus.Percentage), sensor.ID, sensor.Name, strconv.FormatBool(sensor.BatteryStatus.IsLow))
-		ch <- prometheus.MustNewConstMetric(c.isMotionDetectedGauge, prometheus.GaugeValue, boolToInt(time.Now().Before(time.UnixMicro(sensor.MotionDetectedAt*microsec).Add(c.minDetectionSpan))), fmt.Sprintf("%.0f", c.minDetectionSpan.Seconds()), sensor.ID, sensor.Name)
-		ch <- prometheus.MustNewConstMetric(c.isOpenedGauge, prometheus.GaugeValue, boolToInt(time.Now().Before(time.UnixMicro(sensor.OpenStatusChangedAt*microsec).Add(c.minDetectionSpan)) || sensor.IsOpened), fmt.Sprintf("%.0f", c.minDetectionSpan.Seconds()), sensor.ID, sensor.Name)
+		ch <- prometheus.MustNewConstMetric(c.isMotionDetectedGauge, prometheus.GaugeValue, boolToInt(time.Now().Before(time.UnixMicro(sensor.MotionDetectedAt*microsec).Add(c.minDetectionSpan))), sensor.ID, sensor.Name, fmt.Sprintf("%.0f", c.minDetectionSpan.Seconds()))
+		ch <- prometheus.MustNewConstMetric(c.isOpenedGauge, prometheus.GaugeValue, boolToInt(time.Now().Before(time.UnixMicro(sensor.OpenStatusChangedAt*microsec).Add(c.minDetectionSpan)) || sensor.IsOpened), sensor.ID, sensor.Name, fmt.Sprintf("%.0f", c.minDetectionSpan.Seconds()))
 	}
 }
 
